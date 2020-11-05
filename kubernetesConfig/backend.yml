@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-pod
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: backend-pod
+    spec:
+      containers:
+      - name: backend
+        env:
+        - name: MONGO_URL
+          value: mongodb://mongodb-service:27017/backend
+        image: kwendim/gebeya:backend
+        ports:
+        - containerPort: 8080
+          # imagePullPolicy: Always
+      restartPolicy: Always      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: backend
+  name: backend-service
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: backend-pod
+  type: ClusterIP
