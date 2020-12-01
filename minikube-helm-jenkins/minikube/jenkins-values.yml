@@ -69,7 +69,7 @@ master:
   componentName: "jenkins-master"
   image: "jenkins/jenkins"
   tag: "lts"
-  imagePullPolicy: "Always"
+  imagePullPolicy: "IfNotPresent"
   imagePullSecretName:
   # Optionally configure lifetime for master-container
   lifecycle:
@@ -152,7 +152,7 @@ master:
   targetPort: 8080
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
-  serviceType: NodePort
+  serviceType: ClusterIP
   # Jenkins master service annotations
   serviceAnnotations: {}
   # Jenkins master custom labels
