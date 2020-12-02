@@ -1,0 +1,24 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: esp-tls
+  namespace: default
+spec:
+  secretName: esp-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - webapp.gonboarding.com
+  - jenkins.gonboarding.com
+  - keycloak.gonboarding.com
+  - backend.gonboarding.com
+  acme:
+    config:
+    - http01:
+        ingress: esp-ingress
+      domains:
+      - webapp.gonboarding.com
+      - jenkins.gonboarding.com
+      - keycloak.gonboarding.com
+      - backend.gonboarding.com

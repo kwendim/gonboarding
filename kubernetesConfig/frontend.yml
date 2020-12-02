@@ -20,7 +20,7 @@ spec:
       - name: frontend
         env:
         - name: REACT_APP_BACKEND
-          value: http://backend.192.168.49.2.nip.io
+          value: https://backend.gonboarding.com
         image: kwendim/gebeya:frontend
         ports:
         - containerPort: 3000

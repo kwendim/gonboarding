@@ -1,16 +1,17 @@
-# FROM node:latest
-# WORKDIR /frontend
+FROM node:latest
+WORKDIR /frontend
+COPY . /frontend/
 # COPY ./build/ /frontend/
-# CMD npm install
-# CMD npm start
+CMD npm install
+CMD npm start
 
 # nginx state for serving content
-FROM nginx:alpine
-# Set working directory to nginx asset directory
-WORKDIR /usr/share/nginx/html
-# Remove default nginx static assets
-RUN rm -rf ./*
-# Copy static assets from builder stage
-COPY ./build .
-# Containers run nginx with global directives and daemon off
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+# FROM nginx:alpine
+# # Set working directory to nginx asset directory
+# WORKDIR /usr/share/nginx/html
+# # Remove default nginx static assets
+# RUN rm -rf ./*
+# # Copy static assets from builder stage
+# COPY ./build .
+# # Containers run nginx with global directives and daemon off
+# ENTRYPOINT ["nginx", "-g", "daemon off;"]

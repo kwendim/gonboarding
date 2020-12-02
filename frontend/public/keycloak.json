@@ -1,6 +1,6 @@
 {
-  "realm": "react-app",
-  "auth-server-url": "http://keycloak:8080",
+  "realm": "React-app",
+  "auth-server-url": "https://keycloak.gonboarding.com/auth/",
   "ssl-required": "external",
   "resource": "react-client",
   "public-client": true,

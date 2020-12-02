@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css';
 import Keycloak from 'keycloak-js';
 
-const apiUrl = "http://backend-service:8080";
+const apiUrl = process.env.REACT_APP_BACKEND;
 
 class App extends Component {
   state = {
@@ -32,7 +32,7 @@ class App extends Component {
     })
     console.log("componenet did mount");
     console.log(this.state)
-    // this.loadUsers();
+    this.loadUsers();
   }
 
   render() {

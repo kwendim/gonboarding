@@ -5,7 +5,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: generic
+  storageClassName: standard
   capacity:
     storage: 500Mi
   accessModes:
@@ -19,7 +19,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: mo-data-pvc
 spec:
-  storageClassName: generic
+  storageClassName: standard
   accessModes:
   - ReadWriteOnce
   resources:
