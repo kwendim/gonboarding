@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css';
 import Keycloak from 'keycloak-js';
 
-const apiUrl = process.env.REACT_APP_BACKEND;
+const apiUrl = window.REACT_APP_BACKEND;
 
 class App extends Component {
   state = {

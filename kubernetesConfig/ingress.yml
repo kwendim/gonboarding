@@ -11,9 +11,9 @@ spec:
   tls:
   - hosts:
     - webapp.gonboarding.com
-    - webapp.gonboarding.com
-    - webapp.gonboarding.com
-    - webapp.gonboarding.com
+    - backend.gonboarding.com
+    - jenkins.gonboarding.com
+    - keycloak.gonboarding.com
     secretName: esp-tls
   rules:
     - host: backend.gonboarding.com

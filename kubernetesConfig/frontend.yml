@@ -23,8 +23,9 @@ spec:
           value: https://backend.gonboarding.com
         image: kwendim/gebeya:frontend
         ports:
-        - containerPort: 3000
-        # imagePullPolicy: Always
+        - containerPort: 80
+        #imagePullPolicy: Always
+        command: ["./docker-entrypoint.sh"]
       restartPolicy: Always      
 --- 
 apiVersion: v1
@@ -36,7 +37,7 @@ metadata:
 spec:
   ports:
   - port: 8080
-    targetPort: 3000
+    targetPort: 80
   selector:
     app: frontend-pod
   type: ClusterIP
